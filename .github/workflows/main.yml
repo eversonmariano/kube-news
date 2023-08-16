@@ -24,4 +24,4 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: 
-            evermariano/kube-news:v1
+            evermariano/kube-news:v1.0
