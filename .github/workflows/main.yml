@@ -26,4 +26,17 @@ jobs:
           tags: |
             evermariano/kube-news:${{github.run_number}}
             evermariano/kube-news:latest
+  CD:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.5.3
+
+      - name: Definindo o context
+        uses: Azure/k8s-set-context@v3.0
+        with:
+          method: kubeconfig
+          kubeconfig: ${{secrets.K8S_CONFIG}}
+          
+    
             
