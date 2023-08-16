@@ -24,5 +24,6 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            evermariano/kube-news:v1.0
+            evermariano/kube-news:${{github.run_number}}
+            evermariano/kube-news:latest
             
