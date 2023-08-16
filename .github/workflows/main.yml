@@ -1,7 +1,7 @@
 name: CI-CD
 
 on: 
-  push:
+  push: 
     branches: ["main"]
 
 jobs:
@@ -10,18 +10,19 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3.5.3
-
+      
       - name: Autenticação no Docker Hub
         uses: docker/login-action@v2.2.0
         with:
           username: ${{secrets.DOCKERHUB_USER}}
           password: ${{secrets.DOCKERHUB_PWD}}
-        
       
       - name: Construção da imagem Docker
-        with:
+        uses: docker/build-push-action@v3.2.0
+        with: 
           context: ./src
           file: ./src/Dockerfile
           push: true
-          tags: 
+          tags: |
             evermariano/kube-news:v1.0
+            
